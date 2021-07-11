@@ -1,13 +1,42 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import './expense.style.css'
 
 const ExpenseForm = () => {
-    const [enteredTitle, setEnteredTitle] = useState(''); // 3 different use state is being used.
-    const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate] = useState('');
-    const titleChangeHandler = event => setEnteredTitle(event.target.value);
-    const amountChangeHandler = event => setEnteredAmount(event.target.value);
-    const dateChangeHandler = event => setEnteredDate(event.target.value);
+    // const [enteredTitle, setEnteredTitle] = useState(''); // 3 different use state is being used.
+    // const [enteredAmount, setEnteredAmount] = useState('');
+    // const [enteredDate, setEnteredDate] = useState('');
+    const [userInput, setUserInput] = useState({
+        enteredTitle: '',
+        enteredAmount: '',
+        enteredDate: ''
+    })
+    /*
+    this is a unified useState method
+    it has 3 array of objects
+    such as enteredTitle,enteredAmount and entered title
+    userinput is the array which holds  enteredTitle: '',enteredAmount: '',enteredDate: '' they are empty by default
+    setUserInput array which sets the value for   enteredTitle: '',enteredAmount: '',enteredDate: '' they are empty by default but can be set on value to a value that I want.
+
+    */
+
+    const titleChangeHandler = event => {
+        setUserInput({
+            ...userInput,
+            enteredTitle: event.target.value
+        })
+    }
+    const amountChangeHandler = event => {
+        setUserInput({
+            ...userInput,
+            enteredAmount:event.target.value
+        })
+    }
+    const dateChangeHandler = event => {
+        setUserInput({
+            ...userInput,
+            enteredDate: event.target.value
+        })
+    }
     return (
         <form>
             <div className='new-expense__control'>

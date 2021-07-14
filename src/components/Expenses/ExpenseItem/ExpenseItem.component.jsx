@@ -6,7 +6,7 @@ import ExpenseDate from "../ExpenseDate/ExpenseDate.components";
 const ExpenseItem = props => {
 
     return ( // props here so data can be passed dynamically.
-
+         <li>
         <Card className='expense-item'>
             <div className="expense-item__description">
                 <ExpenseDate date={props.date}/> {/* this where the expense date goes  */}
@@ -14,6 +14,7 @@ const ExpenseItem = props => {
                 <div className='expense-item__price'>${props.amount}</div>
             </div>
         </Card>
+         </li>
 
     );
 };

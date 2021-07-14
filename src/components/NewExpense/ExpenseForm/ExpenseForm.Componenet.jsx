@@ -20,7 +20,7 @@ const ExpenseForm = (props) => {
         event.preventDefault() // this prevents it from going to default
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
         }
         props.onSaveExpenseData(expenseData);
